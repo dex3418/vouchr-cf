@@ -1,0 +1,21 @@
+/* Vouchr tokens. Brand colours are sampled from the favicon: vouc (magenta), dot (green), hr (blue). */
+:root {
+  --magenta: #cb3bcc;
+  --green: #29b937;
+  --blue: #018bba;
+  /* Darker shades for buttons and small text so white text and thin text stay readable */
+  --magenta-d: #a428a5;
+  --green-d: #1b8a2a;
+  --blue-d: #00718f;
+
+  --bg: #ffffff;
+  --soft: #f7f5fc;
+  --text: #17132b;
+  --mid: #4a4666;
+  --light: #6e6890;
+  --border: #e9e5f5;
+
+  --radius: 16px;
+  --max: 1120px;
+  --font: "DM Sans", "Noto Sans Devanagari", system-ui, -apple-system, "Segoe UI", sans-serif;
+}

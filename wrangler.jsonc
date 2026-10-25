@@ -1,0 +1,13 @@
+{
+  "name": "vouchr",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "keep_vars": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/sitemap.xml", "/articles", "/articles/*", "/directory", "/directory/*"]
+  }
+}

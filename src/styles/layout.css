@@ -1,0 +1,34 @@
+/* Wordmark */
+.wm { font-weight: 800; letter-spacing: -0.03em; font-size: 1.9rem; line-height: 1; }
+.wm__v { color: var(--magenta); }
+.wm__dot { color: var(--green); }
+.wm__h { color: var(--blue); }
+
+/* Navigation */
+.nav { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--border); }
+.nav__inner { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.nav__brand { display: flex; align-items: center; gap: 12px; }
+.nav__by { font-size: 0.7rem; font-weight: 700; padding: 4px 9px; border-radius: 999px; background: var(--soft); border: 1px solid var(--border); color: var(--light); white-space: nowrap; }
+.nav__right { display: flex; align-items: center; gap: 12px; }
+.nav__cta { min-height: 44px; padding: 8px 18px; }
+.lang { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+.lang button { font: inherit; font-size: 0.85rem; font-weight: 700; padding: 8px 14px; border: 0; background: #fff; color: var(--mid); cursor: pointer; min-height: 44px; }
+.lang button[aria-pressed="true"] { background: var(--text); color: #fff; }
+@media (max-width: 560px) { .nav__by { display: none; } .wm { font-size: 1.6rem; } .nav__cta { padding: 8px 14px; } }
+
+/* Footer */
+.footer { padding: 0 0 34px; }
+.footer .band { margin-bottom: 34px; }
+.footer__inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.footer__wm { font-size: 1.5rem; }
+.footer__text { color: var(--light); margin-top: 6px; font-size: 0.95rem; }
+.footer__links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer__links a { color: var(--mid); font-weight: 500; }
+.footer__links a:hover { color: var(--magenta-d); }
+
+.footer__credit { color: var(--light); margin-top: 4px; font-size: 0.82rem; }
+.footer__credit a { text-decoration: underline; text-underline-offset: 3px; }
+
+.nav__link { font-weight: 700; color: var(--mid); padding: 10px 6px; }
+.nav__link:hover { color: var(--magenta-d); }
+@media (max-width: 640px) { .nav__link { display: none; } }

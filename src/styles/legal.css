@@ -1,0 +1,44 @@
+/* Legal pages (Privacy Policy). Flat base here; the frosted glass for .lcard and .ltoc is added in glass.css. */
+.legal { max-width: 820px; }
+.legal__head { margin-bottom: 28px; }
+.legal__head .sh__title { font-size: clamp(2.1rem, 6vw, 3.2rem); margin-bottom: 10px; }
+.legal__meta { display: inline-block; margin-top: 16px; padding: 5px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--border); color: var(--light); font-size: 0.82rem; font-weight: 700; }
+
+/* Table of contents */
+.ltoc { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 22px; }
+.ltoc__title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; color: var(--magenta-d); margin-bottom: 12px; text-transform: uppercase; }
+.ltoc__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px; }
+.ltoc__list a { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 500; color: var(--mid); border-radius: 10px; }
+.ltoc__list a:hover { color: var(--text); }
+.ltoc__n { flex: none; width: 26px; height: 26px; display: inline-grid; place-items: center; border-radius: 8px; background: var(--soft); color: var(--text); font-size: 0.8rem; font-weight: 800; }
+.ltoc__list a:hover .ltoc__n { background: var(--text); color: #fff; }
+
+/* Policy sections */
+.lcard { --accent: var(--magenta-d); position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 28px 28px; margin-bottom: 16px; scroll-margin-top: 92px; overflow: hidden; }
+.lcard--b { --accent: var(--blue-d); }
+.lcard--g { --accent: var(--green-d); }
+.lcard::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); }
+.lcard__head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.lcard__n { flex: none; width: 38px; height: 38px; display: inline-grid; place-items: center; border-radius: 12px; background: var(--accent); color: #fff; font-weight: 800; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4); }
+.lcard__t { font-size: 1.25rem; font-weight: 800; line-height: 1.25; letter-spacing: -0.01em; }
+.lcard__body { color: var(--mid); font-size: 1.02rem; line-height: 1.8; }
+.lcard__body > * + * { margin-top: 12px; }
+.lcard__body a { color: var(--blue-d); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+
+/* Bullets echo the diamond band */
+.llist { display: grid; gap: 8px; }
+.llist li { position: relative; padding-left: 26px; color: var(--text); }
+.llist li::before { content: ""; position: absolute; left: 4px; top: 0.62em; width: 9px; height: 9px; background: var(--accent); transform: rotate(45deg); border-radius: 2px; }
+
+/* Grievance officer details */
+.ldl { display: grid; gap: 1px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--border); }
+.ldl__row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 16px; background: #fff; }
+.ldl dt { font-weight: 700; color: var(--light); font-size: 0.9rem; }
+.ldl dd { margin: 0; color: var(--text); font-weight: 500; }
+
+@media (max-width: 640px) {
+  .ltoc__list { grid-template-columns: 1fr; }
+  .lcard { padding: 22px 20px 24px; }
+  .lcard__t { font-size: 1.12rem; }
+  .ldl__row { grid-template-columns: 1fr; gap: 2px; }
+}
