@@ -46,8 +46,21 @@ function run(handler, request, query) {
 }
 
 // The React app's index.html. "/" is fetched, not "/index.html", because the assets binding redirects the latter.
-const serveIndex = (env, url, request) =>
-  env.ASSETS.fetch(new Request(`${url.origin}/`, { headers: request.headers }))
+// Canonical and og:url are set per page, and any leftover __SITE_URL__ placeholder is filled with the live address,
+// so every page tells Google its own address no matter whether SITE_URL was set at build time.
+async function serveIndex(env, url, request) {
+  const res = await env.ASSETS.fetch(new Request(`${url.origin}/`, { headers: request.headers }))
+  if (!res.ok || !(res.headers.get("content-type") || "").includes("text/html")) return res
+  const site = (env.SITE_URL || url.origin).replace(/\/$/, "")
+  const here = site + (url.pathname === "/" ? "/" : url.pathname.replace(/\/$/, ""))
+  const html = (await res.text())
+    .replace(/<link rel="canonical" href="[^"]*" \/>/, () => `<link rel="canonical" href="${here}" />`)
+    .replace(/<meta property="og:url" content="[^"]*" \/>/, () => `<meta property="og:url" content="${here}" />`)
+    .replaceAll("__SITE_URL__", site)
+  const headers = new Headers(res.headers)
+  headers.delete("content-length")
+  return new Response(html, { status: res.status, headers })
+}
 
 export default {
   async fetch(request, env) {
