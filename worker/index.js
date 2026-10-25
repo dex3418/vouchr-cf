@@ -1,3 +1,4 @@
+import { seoResponse } from "./seo.js"
 // Cloudflare Worker entry for Vouchr.
 // Static files and the React app are served by the assets binding (ASSETS).
 // The Worker only handles the API, the live sitemap and the server-rendered article/directory previews.
@@ -57,6 +58,8 @@ export default {
     globalThis.__ASSETS = env.ASSETS
 
     const url = new URL(request.url)
+    const seo = await seoResponse(url, env)
+    if (seo) return seo
     const path = url.pathname.replace(/(.)\/$/, "$1")
     const query = Object.fromEntries(url.searchParams)
 

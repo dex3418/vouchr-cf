@@ -8,6 +8,6 @@
     "directory": "./dist",
     "binding": "ASSETS",
     "not_found_handling": "single-page-application",
-    "run_worker_first": ["/api/*", "/sitemap.xml", "/articles", "/articles/*", "/directory", "/directory/*"]
+    "run_worker_first": ["/api/*", "/sitemap.xml", "/robots.txt", "/articles", "/articles/*", "/directory", "/directory/*"]
   }
 }
